@@ -1,6 +1,6 @@
 # goals : run minikube and deploy your first Nginx Pod
 
-**prerequisites :**
+**Prerequisites :**
 - A dockerhub account
 - Docker installed on your machine for linux, Docker Desktop for Windows users
 - Minikuke installed for Linux, or Docker Desktop with windows to run a Kubernetes cluster
@@ -45,33 +45,35 @@ Visit http://127.0.0.1:8080 on your favorite browser
 ### get a bash session in your pod, exit from pod, and delete it from your console to terminate TP
 open a new terminal/console
 
-`kubectl exec -it premier-pod -- bash`
-**result :**
-*root@premier-pod:/#*
+`kubectl exec -it premier-pod -- bash` 
+**result :** 
+*root@premier-pod:/#* 
 
-`hostname -i`
-**result :**
-*172.17.0.5*
-*root@premier-pod:/#*
+`hostname -i` 
+**result :** 
+*172.17.0.5* 
+*root@premier-pod:/#* 
 
 `exit`
-**result :**
-*a@a-w541:~$*
+**result :** 
+*a@a-w541:~$* 
 
-`kubectl delete pod premier-pod`
-**result :**
-*pod "premier-pod" deleted*
-*a@a-w541:~$*
+`kubectl delete pod premier-pod` 
+**result :** 
+*pod "premier-pod" deleted* 
+*a@a-w541:~$* 
 
-`kubectl get pods
-**result :**
-*No resources found in default namespace.*
-*a@a-w541:~$*
+`kubectl get pods 
+**result :** 
+*No resources found in default namespace.* 
+*a@a-w541:~$* 
 
 
 
 ### Before closing your computer : stop minikube
 `minikube stop`
-
-
+ 
+  
+ 
+ 
 Enjoy !! :sunglasses: :tropical_drink: :tropical_drink:
