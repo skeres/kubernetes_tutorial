@@ -87,24 +87,24 @@ please note the structure of pod's names : kubernetes add some letters and numbe
 ![12_nginx_describe_replicaset.png](/resources/12_nginx_describe_replicaset.png "Your replicaset")
 
 
-### trying to delete a pod => kubernetes will re-create it !
+### try to delete a pod => kubernetes will re-create it !
 `kubectl delete pod my-replicaset-dt8pt`  
 
-### verify that a new pod has benn created
+### verify that a new pod has been created
 `kubectl get pods`     
 *NAME                  READY   STATUS    RESTARTS   AGE*  
 *my-replicaset-cjpsc   1/1     Running   0          24m*  
 *my-replicaset-gjvkd   1/1     Running   0          24m*  
-*my-replicaset-h99rq   1/1     Running   0          71s*     ! h99rq is the new pod. dt8pt above has been removed  
+*my-replicaset-h99rq   1/1     Running   0          71s*  >>> h99rq is the new pod. dt8pt above has been removed  
 *my-replicaset-l2rb9   1/1     Running   0          24m*   
 
-### you can scale the replicaset size ! 
+### you can scale up or down the replicaset size ! 
 `kubectl scale --replicas=2 replicaset my-replicaset`  
 **result :**  
 ![12_nginx_scale_down_replicaset.png](/resources/12_nginx_scale_down_replicaset.png "Your replicaset")
 
 
-### delete your replicaset to end this practice
+### delete your replicaset to end this game ;o)
 `kubectl delete rs my-replicaset`  
 
 ### Before closing your computer : stop minikube
