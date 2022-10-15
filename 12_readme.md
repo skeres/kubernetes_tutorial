@@ -28,7 +28,7 @@
 
 
 
-## >>> Install kubernetes dashboard   
+## > Install kubernetes dashboard   
 
 ### minimum installation 
 `minikube addons enable dashboard`
@@ -44,7 +44,7 @@ it works !
 ![12_nginx_dashboard.png ](/resources/12_nginx_dashboard.png "Your nginx server informations in kubernetes dashboard")
 
 
-
+## > deploy your first replicaset   
 
 
 
