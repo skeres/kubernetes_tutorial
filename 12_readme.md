@@ -1,4 +1,8 @@
-# goals : run minikube and deploy your first Nginx Pod
+# goals : with minikube cluster, using DECLARATIVE mode : 
+# - deploy your first Nginx Pod 
+# - install kubernetes dashboard
+# - deploy your first replicaset
+
 
 **Prerequisites :**
 - A dockerhub account
@@ -8,33 +12,45 @@
 
 **TL;DR**
 
+## - deploy your first Nginx Pod 
 
 ### start Kubernetes cluster 
 `minikube start`
 
-### get cluster informations 
-`kubectl cluster-info`
+### create your yml file ( see directory resources/12 to get the file )
+`vim nginxpod.yml`
 
-### get cluster config
-`kubectl config view`
+### create the pod
+`kubectl apply -f nginxpod.yml`
 
-### get nodes  
-`kubectl get nodes`
-
-### get pods in current namespace
-`kubectl get pods`
-
-### get pods of kube-system namespace
-`kubectl get pods -n kube-system`   
-  or   
-`kubectl get pods --namespace kube-system`
-
-### run nginx 
-`kubectl run premier-pod --image=nginx --restart=Never`
-
-### view current status in real time. ( Type ctrl+c to exit when status is ready 1/1 )
+### verify that th pod is currently running. ( Type ctrl+c to exit when status is ready 1/1 )
 `kubectl get pods --watch`
 
+
+## - install kubernetes dashboard
+
+### minimum installation 
+`minikube addons enable dashboard`
+
+### add metrics 
+`minikube addons enable metrics-server`
+
+### run dashboard in your favorite browser 
+`minikube dashboard`
+
+it works !
+
+![12_nginx_dashboard.png ](/resources/12_nginx_dashboard.png "Your nginx server informations in kubernetes dashboard")
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------
 ### check logs of a spécific pod 
 `kubectl logs premier-pod`
 
@@ -43,7 +59,7 @@
 
 Visit http://127.0.0.1:8080 on your favorite browser
 
-![11_nginx_it_works.png](/resources/11_nginx_it_works.png "Your nginx server works at http://localhost:8080/")
+![nginx_it_works](/resources/nginx_it_works.png "Your nginx server works at http://localhost:8080/")
 
 ### get a bash session in your pod, exit from pod, and delete it from your console to terminate TP
 open a new terminal/console
