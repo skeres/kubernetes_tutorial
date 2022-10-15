@@ -25,7 +25,9 @@
 `kubectl get pods`
 
 ### get pods of kube-system namespace
-`kubectl get pods -n kube-system`  or `kubectl get pods --namespace kube-system`
+`kubectl get pods -n kube-system`   
+  or   
+`kubectl get pods --namespace kube-system`
 
 ### run nginx 
 `kubectl run premier-pod --image=nginx --restart=Never`
