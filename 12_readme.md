@@ -9,10 +9,13 @@
 - Docker installed on your machine for linux, Docker Desktop for Windows users
 - Minikuke installed for Linux, or Docker Desktop with windows to run a Kubernetes cluster
 - Kubectl installed ( comes without installation with Docker Desktop )
-
+   
+   
 **TL;DR**
 
-## - deploy your first Nginx Pod 
+
+
+## - Deploy your first Nginx Pod 
 
 ### start Kubernetes cluster 
 `minikube start`
@@ -27,7 +30,8 @@
 `kubectl get pods --watch`
 
 
-## - install kubernetes dashboard
+
+## - Install kubernetes dashboard
 
 ### minimum installation 
 `minikube addons enable dashboard`
