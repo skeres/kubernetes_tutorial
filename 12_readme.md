@@ -12,7 +12,7 @@
       
 **TL;DR**  
 
-## >>> Deploy your first Nginx Pod 
+## > Deploy your first Nginx Pod 
 
 ### start Kubernetes cluster 
 `minikube start`
@@ -42,6 +42,9 @@
 it works !
 
 ![12_nginx_dashboard.png ](/resources/12_nginx_dashboard.png "Your nginx server informations in kubernetes dashboard")
+
+### delete pod using dashboard
+![12_nginx_dashboard_delete.png ](/resources/12_nginx_dashboard_delete.png "delete pod")
 
 
 ## > deploy your first replicaset   
