@@ -57,7 +57,7 @@ it works !
 
 it works !
 
-![2_nginx_dashboard_replicaset.png](/resources/2_nginx_dashboard_replicaset.png "Your replicaset")
+![12_nginx_dashboard_replicaset.png](/resources/12_nginx_dashboard_replicaset.png "Your replicaset")
 
 
 ### display list of replicasets
@@ -67,7 +67,7 @@ it works !
 *my-replicaset   4         4         4       6m11s*  
 
 ### display current pods
-`kubectl get pods`
+`kubectl get pods`  
 **result :**  
 *NAME                  READY   STATUS    RESTARTS   AGE*  
 *my-replicaset-cjpsc   1/1     Running   0          9m7s*  
@@ -80,33 +80,9 @@ it works !
 **result :**  
 
 ### display informtions about replicaset
-`kubectl describe rs my-replicaset`
+`kubectl describe rs my-replicaset`  
 **result :**  
-*Name:         my-replicaset*  
-*Namespace:    default*  
-*Selector:     app=myapp,type=frontend*  
-*Labels:       <none>*  
-*Annotations:  <none>*  
-*Replicas:     4 current / 4 desired*  
-*Pods Status:  4 Running / 0 Waiting / 0 Succeeded / 0 Failed*  
-*Pod Template:*  
-*  Labels:  app=myapp*  
-*           type=frontend*  
-*  Containers:*  
-*   nginxpod:*  
-*    Image:        nginx*  
-*    Port:         <none>*  
-*    Host Port:    <none>*  
-*    Environment:  <none>*  
-*    Mounts:       <none>*  
-*  Volumes:        <none>*  
-*Events:*  
-*  Type    Reason            Age   From                   Message*  
-*  ----    ------            ----  ----                   -------
-*  Normal  SuccessfulCreate  10m   replicaset-controller  Created pod: my-replicaset-dt8pt*  
-*  Normal  SuccessfulCreate  10m   replicaset-controller  Created pod: my-replicaset-cjpsc*  
-*  Normal  SuccessfulCreate  10m   replicaset-controller  Created pod: my-replicaset-l2rb9*  
-*  Normal  SuccessfulCreate  10m   replicaset-controller  Created pod: my-replicaset-gjvkd*  
+![12_nginx_describe_replicaset.png](/resources/12_nginx_describe_replicaset.png "Your replicaset")
 
 
 
