@@ -8,10 +8,8 @@
 
 **TL;DR**
 
-```html
-<div style="color:DodgerBlue;">
+
 ### start Kubernetes cluster 
-</div>
 `minikube start`
 
 ### get cluster informations 
