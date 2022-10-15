@@ -75,68 +75,40 @@ it works !
 *my-replicaset-gjvkd   1/1     Running   0          9m7s*  
 *my-replicaset-l2rb9   1/1     Running   0          9m7s*  
 
+please note the structure of pod's names : kubernetes add some letters and numbers !
+
 ### display current pods
 `kubectl get pods`
 **result :**  
 
-### display informtions about replicaset
+### display informations about replicaset
 `kubectl describe rs my-replicaset`  
 **result :**  
 ![12_nginx_describe_replicaset.png](/resources/12_nginx_describe_replicaset.png "Your replicaset")
 
 
+### trying to delete a pod => kubernetes will re-create it !
+`kubectl delete pod my-replicaset-dt8pt`  
 
+### verify that a new pod has benn created
+`kubectl get pods`     
+*NAME                  READY   STATUS    RESTARTS   AGE*  
+*my-replicaset-cjpsc   1/1     Running   0          24m*  
+*my-replicaset-gjvkd   1/1     Running   0          24m*  
+*my-replicaset-h99rq   1/1     Running   0          71s*     ! h99rq is the new pod. dt8pt above has been removed  
+*my-replicaset-l2rb9   1/1     Running   0          24m*   
 
-
-
-
-
-
-
-
-----------------------------------------------------------------
-### check logs of a spécific pod 
-`kubectl logs premier-pod`
-
-### forwarding ports from your cluster 80 to your computer 8080
-`kubectl port-forward pods/premier-pod 8080:80`
-
-Visit http://127.0.0.1:8080 on your favorite browser
-
-![nginx_it_works](/resources/nginx_it_works.png "Your nginx server works at http://localhost:8080/")
-
-### get a bash session in your pod, exit from pod, and delete it from your console to terminate TP
-open a new terminal/console
-
-`kubectl exec -it premier-pod -- bash`  
+### you can scale the replicaset size ! 
+`kubectl scale --replicas=2 replicaset my-replicaset`  
 **result :**  
-*root@premier-pod:/#*  
-
-`hostname -i`  
-**result :**  
-*172.17.0.5*  
-*root@premier-pod:/#*  
-
-`exit`  
-**result :**  
-*a@a-w541:~$*  
-
-`kubectl delete pod premier-pod`  
-**result :**  
-*pod "premier-pod" deleted*  
-*a@a-w541:~$*  
-
-`kubectl get pods  
-**result :**  
-*No resources found in default namespace.*  
-*a@a-w541:~$*  
+![12_nginx_scale_down_replicaset.png](/resources/12_nginx_scale_down_replicaset.png "Your replicaset")
 
 
+### delete your replicaset to end this practice
+`kubectl delete rs my-replicaset`  
 
 ### Before closing your computer : stop minikube
 `minikube stop`
  
-  
- 
- 
 Enjoy !! :sunglasses: :tropical_drink: :tropical_drink:
+
