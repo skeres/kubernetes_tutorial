@@ -1,4 +1,4 @@
-# goals : with minikube cluster, using DECLARATIVE mode : 
+# goals : DECLARATIVE mode with ngninx, dashboard and replicaset
 - deploy your first Nginx Pod 
 - install kubernetes dashboard
 - deploy your first replicaset
