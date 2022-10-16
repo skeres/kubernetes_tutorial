@@ -70,11 +70,11 @@ kubectl scale -n default deployment myapp-deploy --replicas=3
 
 
 ### TIP : don't know the command ? See the dashboard, can help !
-find scale action : 
-![13_httpd_get_scale_on_dahsboard.png ](/resources/13_httpd_get_scale_on_dahsboard.png "13_httpd_get_scale_on_dahsboard")
+find scale action :   
+![13_httpd_get_scale_on_dahsboard.png ](/resources/13_httpd_get_scale_on_dahsboard.png "13_httpd_get_scale_on_dahsboard")  
 
-see the kubectl command : 
-![13_httpd_dashboard_showing_kubectl_command.png ](/resources/13_httpd_dashboard_showing_kubectl_command.png "13_httpd_dashboard_showing_kubectl_command")
+see the kubectl command :   
+![13_httpd_dashboard_showing_kubectl_command.png ](/resources/13_httpd_dashboard_showing_kubectl_command.png "13_httpd_dashboard_showing_kubectl_command")  
 
 
 ### delete your deployment to end the game ;o)
