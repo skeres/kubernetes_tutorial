@@ -34,11 +34,11 @@
 ### display current pods
 `kubectl get pods`  
 **result :**  
-*NAME                            READY   STATUS    RESTARTS   AGE*
-*myapp-deploy-589d4c5594-b4clj   1/1     Running   0          2m6s*
-*myapp-deploy-589d4c5594-cwpdh   1/1     Running   0          19m*
-*myapp-deploy-589d4c5594-f4gbh   1/1     Running   0          19m*
-*myapp-deploy-589d4c5594-gh5td   1/1     Running   0          19m*
+*NAME                            READY   STATUS    RESTARTS   AGE*  
+*myapp-deploy-589d4c5594-b4clj   1/1     Running   0          2m6s*  
+*myapp-deploy-589d4c5594-cwpdh   1/1     Running   0          19m*  
+*myapp-deploy-589d4c5594-f4gbh   1/1     Running   0          19m*  
+*myapp-deploy-589d4c5594-gh5td   1/1     Running   0          19m*  
 
 ### see the deployment result in dashboard
 it works !
