@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+
+kind: Deployment       # beware uppercase 
+
+metadata:
+  name: myapp-deploy   # this will be the Replicaset's name
+                       # consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric
+                       # character (e.g. 'example.com', regex used for validation
+                       # is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+
+spec:
+  replicas : 4
+  
+  selector:
+    matchLabels: 
+      app: myapp
+      type: frontend  # Example label ( see https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ )
+                      # you are free to develop your own conventions. Keep in mind that label Key must be unique for a given object
+                      # "release" : "stable", "release" : "canary"
+                      # "environment" : "dev", "environment" : "qa", "environment" : "production"
+                      # "tier" : "frontend", "tier" : "backend", "tier" : "cache"
+                      # "partition" : "customerA", "partition" : "customerB"
+                      # "track" : "daily", "track" : "weekly"
+  
+  template:
+    metadata:
+      name: second-app # this is will be the template name
+      labels:
+        app: myapp
+        type: frontend  
+    spec:
+      containers:
+        - name: httpd-container  # consist of lower case alphanumeric characters, '-' or '.'. Same regex rules as above
+          image: httpd:alpine3.16
+
+
+  
+

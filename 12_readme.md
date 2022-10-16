@@ -47,7 +47,8 @@ it works !
 ![12_nginx_dashboard_delete.png ](/resources/12_nginx_dashboard_delete.png "delete pod")
 
 
-## > deploy your first replicaset   
+## > deploy your first 
+   
 
 ### create your yml file ( see directory resources/12 to get the file )
 `vim nginx_replicaset.yml`
@@ -61,7 +62,7 @@ it works !
 
 
 ### display list of replicasets
-`kubectl get rs`
+`kubectl get rs`  
 **result :**  
 *NAME            DESIRED   CURRENT   READY   AGE*  
 *my-replicaset   4         4         4       6m11s*  
@@ -77,9 +78,6 @@ it works !
 
 please note the structure of pod's names : kubernetes add some letters and numbers !
 
-### display current pods
-`kubectl get pods`
-**result :**  
 
 ### display informations about replicaset
 `kubectl describe rs my-replicaset`  
