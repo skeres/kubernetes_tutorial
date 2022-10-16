@@ -14,7 +14,9 @@
 
 ### start Kubernetes cluster 
 `minikube start`
+
 `minikube addons enable dashboard`
+
 `minikube addons enable metrics-server`
 
 ### in a new terminal, run dashboard in your favorite browser 
