@@ -28,8 +28,17 @@
 ### create the pod
 `kubectl apply -f httpd_deployment.yml`
 
-### verify that th pod is currently running. ( Type ctrl+c to exit when status is ready 1/1 )
-`kubectl get pods --watch`
+### verify that pods are currently running. ( Type ctrl+c to exit when status is ready 4/4 )
+`kubectl get deployments.apps --watch`  
+**result :**  
+*NAME           READY   UP-TO-DATE   AVAILABLE   AGE*  
+*myapp-deploy   4/4     4            4           32m*  
+
+### describe informations about a deployment
+`kubectl describe deployments.apps myapp-deploy`  
+**result :**  
+![13_http_describe_deployment.png ](/resources/13_http_describe_deployment.png "13_http_describe_deployment")
+
 
 ### display current pods
 `kubectl get pods`  
@@ -54,6 +63,18 @@ it works !
 it works !
 
 ![13_httpd_running.png ](/resources/13_httpd_running.png "13_httpd_running")
+
+
+### scale up or down your deployment and check the result on the dashboard
+kubectl scale -n default deployment myapp-deploy --replicas=3
+
+
+### TIP : don't know the command ? See the dashboard, can help !
+find scale action : 
+![13_httpd_get_scale_on_dahsboard.png ](/resources/13_httpd_get_scale_on_dahsboard.png "13_httpd_get_scale_on_dahsboard")
+
+see the kubectl command : 
+![13_httpd_dashboard_showing_kubectl_command.png ](/resources/13_httpd_dashboard_showing_kubectl_command.png "13_httpd_dashboard_showing_kubectl_command")
 
 
 ### delete your deployment to end the game ;o)
