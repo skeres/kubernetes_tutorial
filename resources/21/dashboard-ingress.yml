@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress          # beware uppercase 
+
+metadata:
+  name: dashboard-ingress   # this will be the Replicaset's name
+                            # consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric
+                            # character (e.g. 'example.com', regex used for validation
+                            # is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+  namespace: kubernetes-dashboard    # specify the namespaces place for this Ingress controller
+
+spec:
+  rules:
+    - host: mydashboard.com         # choose what you want. It must be a valid domain name.
+      http: 
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kubernetes-dashboard    # it's the service name 
+                port:
+                  number: 80                  # port of the dashboard service who is listening to
+
