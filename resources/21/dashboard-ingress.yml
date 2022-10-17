@@ -21,4 +21,4 @@ spec:
                 name: kubernetes-dashboard    # it's the service name. the ingress will route incoming request from mydashboard.com to kubernetes-dashboard service
                 port:
                   number: 80                  # port of the dashboard service who is listening to
-
+   
