@@ -2,7 +2,8 @@
 - run your first Ingress Controller
 
 **Inspire from tutorial**
-[TeckWorld Kubernetes with Nana](https://www.youtube.com/watch?v=80Ew_fsV4rM&t=1101s)
+[TeckWorld Kubernetes with Nana Ingress Tutorial 22](https://www.youtube.com/watch?v=80Ew_fsV4rM)  
+[TeckWorld Kubernetes with Nana Services explained ](https://www.youtube.com/watch?v=T4Z7visMM4E)  
 
 **Prerequisites :**
 - A dockerhub account
