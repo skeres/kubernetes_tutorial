@@ -1,6 +1,8 @@
 # Goals : work with Ingress Controller for K8s dashboard
 - run your first Ingress Controller
 
+**Inspire from tutorial**
+[TeckWorld Kubernetes with Nana](https://www.youtube.com/watch?v=80Ew_fsV4rM&t=1101s)
 
 **Prerequisites :**
 - A dockerhub account
@@ -16,7 +18,7 @@ to permit access from your favorite browser using some domain name.
 ## >> Run your first Ingress Controller
 
 ### Install Ingress Controller in Minikube
-out of the box, it will install and automatically start the K8s Nginx implementation of Ingress Controller,  
+Out of the box, it will install and automatically start the K8s Nginx implementation of Ingress Controller,  
 one of the existing third party implementions.  
 `minikube addons enable ingress`
 
@@ -51,6 +53,9 @@ Those rules will forward all requests from mydashboard.com to the *internal* kub
 
 ### Verify that Ingress is currently running. ( Type ctrl+c to exit when status is ready : ip adress is displayed)
 `kubectl get ingress -n kubernetes-dashboard --watch`  
+
+it might take minutes, please wait ;o)  
+
 **result :**  
 *NAME                CLASS   HOSTS             ADDRESS        PORTS   AGE*  
 *dashboard-ingress   nginx   mydashboard.com   192.168.49.2   80      3m23s*  
