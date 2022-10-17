@@ -17,12 +17,12 @@ to permit access from your favorite browser using some domain name.
 
 ### install Ingress Controller in Minikube
 out of the box, it will install and automatically start the K8s Nginx implementation of Ingress Controller,  
-one of the existing third party implementions.
+one of the existing third party implementions.  
 `minikube addons enable ingress`
 
 ### display existing namespaces
 `kubectl get ns`  
-or
+or  
 `kubectl get --namespace`  
 **Result**  
 *a@a-w541:~/projets/projets_kubernetes/kubernetes_tutorial$ kubectl get namespaces*  
@@ -60,13 +60,17 @@ Those rules will forward all requests from mydashboard.com to the *internal* kub
 ![21_describe_ingress.png ](/resources/21_describe_ingress.png "21_describe_ingress")  
 
 ### to simulate a DNS resolution, define a mapping between your Ingress IP (here 192.168.49.2) and mydashboard.com
-**care ! always make a backup of systems files before update, so you will be able to rollback if any problem appears**
-`sudo cp /etc/hosts /etc/hosts_backup_today`  backup is done !  
+**care ! always make a backup of systems files before update, so you will be able to rollback if any problem appears**  
+`sudo cp /etc/hosts /etc/hosts_backup_today`  
+backup is done !  
 
-`sudo vim /etc/hosts` add the new mapping to route incoming requests to the dashboard  
+`sudo vim /etc/hosts`  
+ add the new mapping to route incoming requests to the dashboard  
 ![21_vim_etc_hosts.png ](/resources/21_vim_etc_hosts.png "21_vim_etc_hosts")  
 
-### access to your dasboard
+### access to your dasboard in your favorite browser
+`http://mydashbard.com`  
+
 it works !   
 ![21_mydashboard.com.png ](/resources/21_mydashboard.com.png "21_mydashboard.com")  
 
