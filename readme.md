@@ -1,4 +1,4 @@
-# Tutorial : learning Kubernetes using Minikube and the CLoud
+# Tutorial : learning Kubernetes using Minikube and CLoud
 
 Those tutorials are for you.  
 
@@ -8,7 +8,7 @@ Those tutorials are for you.
 |---|---|
 |[]()   | - Coming soon : install minikube on Linux and Windows |
 |[]()   | - Coming soon : set up your environment |
-|[10_readme.md](10_readme.md)   | - create namespace and limit it with quotas
+|[10_readme.md](10_readme.md)   | - create namespace and limit it with quotas  
 - add labels to kubernetes objects and requests list objects with selectors  |
 |[11_readme.md](11_readme.md)   | - run minikube and deploy your first Nginx Pod |
 |[12_readme.md](12_readme.md)   | - DECLARATIVE mode with ngninx, dashboard and replicaset |
@@ -23,7 +23,7 @@ Those tutorials are for you.
 
 
 **useful links**  
-[Kubernetes namespace](https://kubernetes.io/docs/home/)  
+[Kubernetes documentation](https://kubernetes.io/docs/home/)  
 
  
 Enjoy !! :sunglasses: :tropical_drink: :tropical_drink:
