@@ -3,11 +3,11 @@
 - add labels to kubernetes objects and requests list objects with selectors
 
 **Inspire from tutorial**  
-[Kubernetes namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)  
-[Kubernetes labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)  
+[none](https://www.google.fr)  
 
 **useful links**
-[none](https://www.google.fr)  
+[Kubernetes namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)  
+[Kubernetes labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)  
 
 **Prerequisites :**
 - A dockerhub account
