@@ -1,4 +1,4 @@
-# goals : DECLARATIVE mode with ngninx, dashboard and replicaset
+# Goals : DECLARATIVE mode with ngninx, dashboard and replicaset
 - deploy your first Nginx Pod 
 - install kubernetes dashboard
 - deploy your first replicaset
@@ -14,40 +14,40 @@
 
 ## > Deploy your first Nginx Pod 
 
-### start Kubernetes cluster 
+### Start Kubernetes cluster 
 `minikube start`
 
-### create your yml file ( see directory resources/12 to get the file )
+### Create your yml file ( see directory resources/12 to get the file )
 `vim nginxpod.yml`
 
-### create the pod
+### Create the pod
 `kubectl apply -f nginxpod.yml`
 
-### verify that th pod is currently running. ( Type ctrl+c to exit when status is ready 1/1 )
+### Verify that th pod is currently running. ( Type ctrl+c to exit when status is ready 1/1 )
 `kubectl get pods --watch`
 
 
 
 ## > Install kubernetes dashboard   
 
-### minimum installation 
+### Minimum installation 
 `minikube addons enable dashboard`
 
-### add metrics 
+### Add metrics 
 `minikube addons enable metrics-server`
 
-### run dashboard in your favorite browser 
+### Run dashboard in your favorite browser 
 `minikube dashboard`
 
 it works !
 
 ![12_nginx_dashboard.png ](/resources/12_nginx_dashboard.png "Your nginx server informations in kubernetes dashboard")
 
-### delete pod using dashboard
+### Delete pod using dashboard
 ![12_nginx_dashboard_delete.png ](/resources/12_nginx_dashboard_delete.png "delete pod")
 
 
-## > deploy your first 
+## > Deploy your first 
    
 
 ### create your yml file ( see directory resources/12 to get the file )
@@ -61,13 +61,13 @@ it works !
 ![12_nginx_dashboard_replicaset.png](/resources/12_nginx_dashboard_replicaset.png "Your replicaset")
 
 
-### display list of replicasets
+### Display list of replicasets
 `kubectl get rs`  
 **result :**  
 *NAME            DESIRED   CURRENT   READY   AGE*  
 *my-replicaset   4         4         4       6m11s*  
 
-### display current pods
+### Display current pods
 `kubectl get pods`  
 **result :**  
 *NAME                  READY   STATUS    RESTARTS   AGE*  
@@ -79,16 +79,16 @@ it works !
 please note the structure of pod's names : kubernetes add some letters and numbers !
 
 
-### display informations about replicaset
+### Display informations about replicaset
 `kubectl describe rs my-replicaset`  
 **result :**  
 ![12_nginx_describe_replicaset.png](/resources/12_nginx_describe_replicaset.png "Your replicaset")
 
 
-### try to delete a pod => kubernetes will re-create it !
+### Try to delete a pod => kubernetes will re-create it !
 `kubectl delete pod my-replicaset-dt8pt`  
 
-### verify that a new pod has been created
+### Verify that a new pod has been created
 `kubectl get pods`     
 *NAME                  READY   STATUS    RESTARTS   AGE*  
 *my-replicaset-cjpsc   1/1     Running   0          24m*  
@@ -96,13 +96,13 @@ please note the structure of pod's names : kubernetes add some letters and numbe
 *my-replicaset-h99rq   1/1     Running   0          71s*  >>> h99rq is the new pod. dt8pt above has been removed  
 *my-replicaset-l2rb9   1/1     Running   0          24m*   
 
-### you can scale up or down the replicaset size ! 
+### You can scale up or down the replicaset size ! 
 `kubectl scale --replicas=2 replicaset my-replicaset`  
 **result :**  
 ![12_nginx_scale_down_replicaset.png](/resources/12_nginx_scale_down_replicaset.png "Your replicaset")
 
 
-### delete your replicaset to end this game ;o)
+### Delete your replicaset to end this game ;o)
 `kubectl delete rs my-replicaset`  
 
 ### Before closing your computer : stop minikube
