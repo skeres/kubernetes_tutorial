@@ -1,6 +1,7 @@
-# Tutorial : learning Kubernetes using Minikube and CLoud
+# Learning Kubernetes using Minikube and Cloud
 
 Those tutorials are for you.  
+Please add stars if you like it !  
 
 
 
@@ -8,7 +9,7 @@ Those tutorials are for you.
 |---|---|
 |[]()   | - Coming soon : install minikube on Linux and Windows |
 |[]()   | - Coming soon : set up your environment |
-|[10_readme.md](10_readme.md)   | - create namespace and limit it with quotas - add labels to kubernetes objects and requests list objects with selectors  |
+|[10_readme.md](10_readme.md)   | - create namespace and limit it with quotas & add labels to kubernetes objects and requests list objects with selectors  |
 |[11_readme.md](11_readme.md)   | - run minikube and deploy your first Nginx Pod |
 |[12_readme.md](12_readme.md)   | - DECLARATIVE mode with ngninx, dashboard and replicaset |
 |[13_readme.md](13_readme.md)   | - work with deployments |
