@@ -84,7 +84,7 @@ spec:
 `kubectl apply -f my_job_01.yml --namespace my-namespace-jobs`  
 
 ### Check Jobs
-`kubectl get job --namespace my-namespace-jobs` 
+`kubectl get job --namespace my-namespace-jobs`   
 **result**
 *NAME    COMPLETIONS   DURATION   AGE*  
 *myjob   1/1           2s         15m*  
@@ -92,8 +92,9 @@ spec:
 
 
 ## Play with Kubernetes Dashboard
-**result**  
+
 Check Kubernetes Dashboard to see the results ( choose or type for namespace "my-namespace-jobs" )  
+**result**  
 it works !   
 ![22_job_succeed.png ](/resources/22_job_succeed.png "22_job_succeed")  
 
@@ -105,7 +106,7 @@ it works !
 ![22_job_result.png ](/resources/22_job_result.png "22_job_result")  
 
 
-### Other way to see log
+### Other way to see the log file
 `kubectl get pods --namespace my-namespace-jobs`  
 **result**  
 *NAME          READY   STATUS      RESTARTS   AGE*  
