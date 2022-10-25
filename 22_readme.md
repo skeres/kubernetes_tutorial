@@ -121,7 +121,7 @@ and with the name of the Pod :
 
 ### Clear your environment to end the game ;o)
 `kubectl delete -f my_job_01.yml --namespace my-namespace-jobs`  
-`kubectl delete --namespace my-namespace-jobs`  
+`kubectl delete namespace my-namespace-jobs`  
 
 
 
