@@ -14,10 +14,10 @@
 **TL;DR**  
 ## > Context
 You can run specific task on demand with jobs.  
-- **Job** Workload off short lived tasks
+- A **Job** is a workload off short lived tasks
 - Creates one or more Pods and ensures that a specified number of them successfully terminate.
-- As Pod successfully complete, The **Job** tracks the successful completions.
-- when a specified number of successful completions is reached, the **Job** completes.
+- As Pod successfully complete, the **Job** tracks the successful completions.
+- When a specified number of successful completions is reached, the **Job** completes.
 - By default, **Jobs** with more than 1 Pod will create them one after the other. To create them at the same time, add parallelims.
 
 ## >> Run your first job
@@ -58,7 +58,26 @@ you can also display all running pods from all namespaces
 ### Create your yml file ( see directory resources/22 to get the file )
 my_job_01.yml  
 content :   
-
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: myjob  # this will be the job name
+  labels:
+    batch: myfirstbatch
+    type: job
+spec:
+  activeDeadlineSeconds: 30
+  parallelism : 1
+  completions : 1
+  template:
+    spec:
+      containers:
+      - name: busybox-container # this is will be container's name
+        images : busybox  
+        command : ["echo", "Hello from the world !"]
+      restartPolicy : Never
+```
 
 
 ### Run your Job in the namespace you have created (otherwise, it will be "default" namespace)
