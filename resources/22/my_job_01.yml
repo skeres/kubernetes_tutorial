@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+
+kind: Job
+
+metadata:
+  name: myjob  # this will be the job name
+  labels:
+    batch: myfirstbatch
+    type: job
+
+spec:
+  activeDeadlineSeconds: 30
+  parallelism : 1
+  completions : 1
+  template:
+    spec:
+      containers:
+      - name: busybox-container # this is will be container's name
+        image : busybox
+        command : ["echo", "Hello from the world !"]
+      restartPolicy : Never
+

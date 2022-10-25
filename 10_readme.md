@@ -5,11 +5,11 @@
 **Inspire from tutorial**  
 [none](https://www.google.fr)  
 
-**useful links**
+**useful links**  
 [Kubernetes namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)  
 [Kubernetes labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)  
 
-**Prerequisites :**
+**Prerequisites :**  
 - A dockerhub account
 - Docker installed on your machine for linux, Docker Desktop for Windows users
 - Minikuke installed for Linux, or Docker Desktop with windows to run a Kubernetes cluster
@@ -17,7 +17,7 @@
       
 **TL;DR**  
 ## > Context
-Play with Kubernetes
+Play with Kubernetes  
 
 ### start Kubernetes cluster 
 `minikube start`
@@ -30,7 +30,7 @@ Play with Kubernetes
 ## >> Create namespaces and limit resources with quotas
 
 ### List all existing namespaces
-`kubectl get ns`
+`kubectl get ns`  
 **result**  
 *NAME                   STATUS   AGE*  
 *default                Active   130d*  
@@ -42,8 +42,8 @@ Play with Kubernetes
 
 
 ### Create your own namespace
-tip : namespace in kubernetes exist to avoid colisions between to object having the same name.
-`kubectl create namespace my-namespace-01`
+tip : namespace in kubernetes exist to avoid colisions between to object having the same name.  
+`kubectl create namespace my-namespace-01`  
 **result**  
 *namespace/my-namespace-01 created*  
 
@@ -55,7 +55,7 @@ or
 *No resources found in my-namespace01 namespace.*  
 
 ### Create a pod running in your namespace
-tip : you should specify a namespace, because if you don't, kubectl will create your new object (pod, job ...) in "default" namespace
+tip : you should specify a namespace, because if you don't, kubectl will create your new object (pod, job ...) in "default" namespace  
 `kubectl run first-pod --image=nginx --restart=Never --namespace=my-namespace-01`  
 **result**  
 *pod/first-pod created*  
@@ -70,6 +70,7 @@ tip : you should specify a namespace, because if you don't, kubectl will create 
 create your yml file ( see directory resources/10 to get the file )  
 `vim createNameSpace.yml`  
 
+file content :  
 apiVersion: v1  
 kind: Namespace  
 metadata:  
@@ -84,7 +85,7 @@ create your yml file ( see directory resources/10 to get the file )
 
 
 ### List all existing namespaces
-`kubectl get ns`
+`kubectl get ns`  
 **result**  
 *NAME                   STATUS   AGE*  
 *default                Active   130d*  
@@ -98,9 +99,10 @@ create your yml file ( see directory resources/10 to get the file )
 
 ### Add quota to my-namespace-01
 tip : you can limit the number of objects in a namespace  
-1/ create your yml file ( see directory resources/10 to get the file )  
+1/ Create your yml file ( see directory resources/10 to get the file )  
 `vim quota-resources.yml`  
 
+file content :  
 apiVersion: v1  
 kind: ResourceQuota  
 metadata:  
@@ -109,13 +111,13 @@ spec:
   hard:  
     pods: 10  
     
-2/ apply quota to my-namespace-01
+2/ Apply quota to my-namespace-01  
 `kubectl create -f quota-resources.yml -n=my-namespace-01`  
 **result**  
 *resourcequota/podquota created*  
 
 
-### display resources for my-namespace-01
+### Display resources for my-namespace-01
 `kubectl describe resourcequotas -n=my-namespace-01`  
 **result**  
 *Name:       podquota*  
@@ -125,11 +127,11 @@ spec:
 *pods        1     10*  
 
 
-## >> add labels and requests with selectors
+## >> Add labels and requests with selectors
 tip : you can add labels to kubernetes objects to select them quicker  
 Labels are just your own key/value you add to objects  
 
-### show all labels on all existing namespaces
+### Show all labels on all existing namespaces
 `kubectl get namespaces --show-labels`  
 **result**   
 *NAME                   STATUS   AGE    LABELS*  
@@ -141,23 +143,23 @@ Labels are just your own key/value you add to objects
 *my-namespace-02        Active   21m    kubernetes.io/metadata.name=my-namespace-02*  
 
 
-### add one label "type=with-limit" ( or more ;o) ) on namespace my-namespace-01
+### Add one label "type=with-limit" ( or more ;o) ) on namespace my-namespace-01
 `kubectl label namespaces my-namespace-01 type=with-limit`  
 **result**   
 *namespace/my-namespace-01 labeled*  
 
 
-### now you can easily retrieve namespaces having a label like "type" value "with-limit"
+### Now you can easily retrieve namespaces having a label like "type" value "with-limit"
 `kubectl get namespaces --selector type=with-limit`  
 or
-`kubectl get namespaces -l type=with-limit`
+`kubectl get namespaces -l type=with-limit`  
 **result**   
 *NAME              STATUS   AGE*  
 *my-namespace-01   Active   45m*  
 
 tip : you can also add a column in the result to see the value of the key ofr each object  
 Example : to list object with their "type" value label  
-`kubectl get namespaces -Ltype`
+`kubectl get namespaces -Ltype`  
 **result**   
 *NAME                   STATUS   AGE    TYPE*  
 *default                Active   130d*   
