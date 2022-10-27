@@ -149,7 +149,12 @@ spec:
           containers:
           - name: busybox-container # this is will be container's name
             image : busybox  
-            command : ["echo", "Hello from the cronjob ! at $(date)"]
+            #command : ["now=date", "echo", "Hello from the cronjob ! at $now"]
+            command: ["/bin/sh","-c"]
+            args:
+              - now=$(date);
+                echo "Hello from the cronjob ! at $now";
+                echo "end of script";
           restartPolicy : Never
 ```
 
@@ -167,11 +172,11 @@ spec:
 *mycronjob   * * * * *   False     0        <none>          7s*  
 
 
-### describe running cronjob
-`kubectl describe --namespace my-namespace-jobs cj mycronjob`
+### Describe running cronjob
+`kubectl describe --namespace my-namespace-jobs cj mycronjob`  
 ![22_describe_cronjob.png ](/resources/22_describe_cronjob.png "22_describe_cronjob")  
 
-### check running pods
+### Check running pods
 by default, only the last 3 pods running cron jobs are displayed, and the last failed job 
 `kubectl get pods --namespace my-namespace-jobs`  
 **result**  
@@ -180,7 +185,7 @@ by default, only the last 3 pods running cron jobs are displayed, and the last f
 *mycronjob-27781360-rh49p   0/1     Completed   0          105s*  
 *mycronjob-27781361-5wgbd   0/1     Completed   0          45s*  
 
-### check log of a pod
+### Check log of a pod
 `kubectl logs --namespace my-namespace-jobs mycronjob-27781360-rh49p`  
 **result**  
 *Hello from the cronjob ! at Thu Oct 27 14:40:02 UTC 2022*  
