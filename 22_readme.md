@@ -1,6 +1,6 @@
-# Goals : execute jobs and scheduling
-- run your job
-- scheduling your job
+# Goals : work with Jobs and CronJob
+- run your first job
+- schedule your job
 
 **Inspired from tutorial**  
 [jobs youtube video - starts at 3.55.05 ](https://www.freecodecamp.org/news/learn-docker-and-kubernetes-hands-on-course/)  
@@ -25,7 +25,7 @@ You can run specific task on demand with jobs.
 ### Cheats for Jobs
 |**COMMAND**   |**DESCRIPTION**   |
 |---|---|
-|kubectl apply -f \[jobname.yml\]     | - create Job |
+|kubectl apply -f \[jobname.yml\]     | - create Job using file definition |
 |kubectl get job   | - list jobs |
 |kubectl describe job \[jobname\]  | - display information |
 |kubectl delete -f \[jobname.yml\]    | - delete the Job using file definition |
@@ -118,9 +118,78 @@ and with the name of the Pod :
 *Hello from the world !*  
 
 
+## >> Schedule your job
+
+### Cheats for CronJob
+|**COMMAND**   |**DESCRIPTION**   |
+|---|---|
+|kubectl apply -f \[cronjobname.yml\]     | - create CronJob using file definition |
+|kubectl get cj   | - list cron jobs |
+|kubectl describe cj \[jobname\]  | - display information |
+|kubectl delete -f \[cronjobname.yml\]    | - delete the CronJob using file definition |
+|kubectl delete cj \[jobname\]    | - delete the CronJob using jobname |
+
+### Create your yml file ( see directory resources/22 to get the file )
+my_cronjob_01.yml  
+content :   
+```
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mycronjob  # this will be the cronjob name
+  labels:
+    batch: myfirstcronbatch
+    type: cronjob
+spec:
+  schedule : "* * * * *"   # this is the default. All stars meaning=running every minute
+  jobTemplate:
+    spec : 
+      template:
+        spec:
+          containers:
+          - name: busybox-container # this is will be container's name
+            image : busybox  
+            command : ["echo", "Hello from the cronjob ! at $(date)"]
+          restartPolicy : Never
+```
+
+### Parameters explanation for scheduling
+![22_cronjob_time_parameters.png ](/resources/22_cronjob_time_parameters.png "22_cronjob_time_parameters")  
+
+
+### Run your Job in the namespace you have created (otherwise, it will be "default" namespace)
+`kubectl apply -f my_cronjob_01.yml --namespace my-namespace-jobs`  
+
+### Check cronjobs
+`kubectl get cj --namespace my-namespace-job`   
+**result**
+*NAME        SCHEDULE    SUSPEND   ACTIVE   LAST SCHEDULE   AGE*  
+*mycronjob   * * * * *   False     0        <none>          7s*  
+
+
+### describe running cronjob
+`kubectl describe --namespace my-namespace-jobs cj mycronjob`
+![22_describe_cronjob.png ](/resources/22_describe_cronjob.png "22_describe_cronjob")  
+
+### check running pods
+by default, only the last 3 pods running cron jobs are displayed, and the last failed job 
+`kubectl get pods --namespace my-namespace-jobs`  
+**result**  
+*NAME                       READY   STATUS      RESTARTS   AGE*  
+*mycronjob-27781359-s9q2x   0/1     Completed   0          2m45s*  
+*mycronjob-27781360-rh49p   0/1     Completed   0          105s*  
+*mycronjob-27781361-5wgbd   0/1     Completed   0          45s*  
+
+### check log of a pod
+`kubectl logs --namespace my-namespace-jobs mycronjob-27781360-rh49p`  
+**result**  
+*Hello from the cronjob ! at Thu Oct 27 14:40:02 UTC 2022*  
+*end of script*  
+
 
 ### Clear your environment to end the game ;o)
 `kubectl delete -f my_job_01.yml --namespace my-namespace-jobs`  
+`kubectl delete -f my_cronjob_01.yml --namespace my-namespace-jobs`  
 `kubectl delete namespace my-namespace-jobs`  
 
 

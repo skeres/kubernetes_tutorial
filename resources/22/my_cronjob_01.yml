@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mycronjob  # this will be the cronjob name
+  labels:
+    batch: myfirstcronbatch
+    type: cronjob
+spec:
+  schedule : "* * * * *"   # this is the default. All stars meaning=running every minute
+  jobTemplate:
+    spec : 
+      template:
+        spec:
+          containers:
+          - name: busybox-container # this is will be container's name
+            image : busybox  
+            #command : ["now=date", "echo", "Hello from the cronjob ! at $now"]
+            command: ["/bin/sh","-c"]
+            args:
+              - now=$(date);
+                echo "Hello from the cronjob ! at $now";
+                echo "end of script";
+          restartPolicy : Never
