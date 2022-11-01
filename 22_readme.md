@@ -177,7 +177,7 @@ spec:
 ![22_describe_cronjob.png ](/resources/22_describe_cronjob.png "22_describe_cronjob")  
 
 ### Check running pods
-by default, only the last 3 pods running cron jobs are displayed, and the last failed job 
+by default, only the last 3 pods running cron jobs are displayed, and the last failed job  
 `kubectl get pods --namespace my-namespace-jobs`  
 **result**  
 *NAME                       READY   STATUS      RESTARTS   AGE*  
