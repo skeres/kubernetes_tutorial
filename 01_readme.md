@@ -1,4 +1,4 @@
-# Goals : playing with minikube
+# Goals : playing with Minikube
 - prerequisites
 - installing tools
 
@@ -14,11 +14,6 @@
 **TL;DR**  
 ## > Context
 with Minikube, you will have your own Kubernetes cluster on your machine !  
-- A **Job** is a workload off short lived tasks
-- Creates one or more Pods and ensures that a specified number of them successfully terminate.
-- As Pod successfully complete, the **Job** tracks the successful completions.
-- When a specified number of successful completions is reached, the **Job** completes.
-- By default, **Jobs** with more than 1 Pod will create them one after the other. To create them at the same time, add parallelims.
 
 ## >> Start your first Cluster !
 

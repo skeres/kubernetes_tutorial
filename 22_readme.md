@@ -6,10 +6,10 @@
 [jobs youtube video - starts at 3.55.05 ](https://www.freecodecamp.org/news/learn-docker-and-kubernetes-hands-on-course/)  
 
 **Prerequisites :**
-- A dockerhub account
+- A Dockerhub account
 - Docker installed on your machine for linux, Docker Desktop for Windows users
 - Minikuke installed for Linux, or Docker Desktop with windows to run a Kubernetes cluster
-- Kubectl installed ( comes without installation with Docker Desktop )
+- Kubectl installed ( comes without installation with Docker Desktop on Windows )
       
 **TL;DR**  
 ## > Context

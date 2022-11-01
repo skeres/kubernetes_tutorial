@@ -7,7 +7,7 @@ Please add stars if you like it !
 
 |**CHAPTER**   |**CONTENT**   |
 |---|---|
-|[01_readme.md](01_readme.md)   | - WIP : install minikube on Linux |
+|[01_readme.md](01_readme.md)   | - WIP : playing with minikube on Linux |
 |[]()   | - Coming soon : set up your environment |
 |[10_readme.md](10_readme.md)   | - create namespace and limit it with quotas & add labels to kubernetes objects and requests list objects with selectors  |
 |[11_readme.md](11_readme.md)   | - run minikube and deploy your first Nginx Pod |
